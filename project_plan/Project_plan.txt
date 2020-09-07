@@ -1,0 +1,38 @@
+department->course->topics->batch
+students (first_name, middle_name, last_name, dob, pob, nationality, marital_status, phone, email, current_address, photo)
+relatives (first_name, last_name, primary_phone, secondary_phone)
+relative_student (relative_id, student_id, relationship)
+users: instructors, coordinator, hod, rector
+certificates
+payments
+
+
+---------------------------------------------
+DEPARTMENT (code, name)
+COURSE (code, name, duration, fee, department_id) : show, edit, update, delete
+TOPICS (name, course_id)
+
+
+batch:
+name, start_date, end_date, course_id
+
+NEXT CONTROLLER: InstructorController, relationships with: department, batch
+Instructor (name, email, phone
+
+Users: name, sex, email, phone, department_id
+Roles: admin, coordinator, dept_coordinator, rector, hod, account
+
+CORRECTION: Change students migration use name instead of first_name, middle_name and last_name
+
+
+ACHIEVED SO FAR:
+Departments: add
+Users: register to departments, assign role of instructor upon registrations,
+Students: add students, list students info
+Relatives: add relatives, assign students to their relatives
+Courses: add to departments
+Topics: add topics to courses
+Batches: add batches to courses, populate students to batch, list batch info
+Roles: add roles through db seeder
+
+
