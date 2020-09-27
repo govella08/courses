@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="actions mt-5">
-                        <a href="{{ route('courses.create') }}" class="btn btn-sm btn-outline-info float-left">Add New Course to this Department</a>
+                        <a href="{{ route('courses.create', $department->id) }}" class="btn btn-sm btn-outline-info float-left">Add New Course to this Department</a>
                         <a href="{{ route('departments.edit', $department->id) }}" class="btn btn-sm btn-outline-info float-left ml-1">Do something on this department</a>
                         <a href="{{ route('departments.edit', $department->id) }}" class="btn btn-sm btn-outline-warning float-left ml-1">Edit this department</a>
                         <form action="{{ route('departments.destroy', $department->id) }}" method="post" class="float-left align-items-right ml-1">

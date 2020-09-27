@@ -23,7 +23,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('departments', 'DepartmentController');
 
-Route::resource('courses', 'CourseController');
+Route::resource('courses', 'CourseController')->except('create');
+Route::get('courses/create/{id}', 'CourseController@create')->name('courses.create');
 
 /**
  *  I decided to break the resource route to individual routes

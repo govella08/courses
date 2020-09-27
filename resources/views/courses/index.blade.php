@@ -9,16 +9,16 @@
 					<div class="flex align-items-center">
 						Courses
 						<div class="float-right">
-							<a title="Add new course" href="{{ route('courses.create') }}" class="btn btn-outline-secondary btn-sm"><i class="fas fa-plus"></i> Add Course</a>
+							
 						</div>
 					</div>
 				</div>
 
                 <div class="card-body">
                     @if (session('message'))
-                            <div class="alert alert-success p-2" role="alert">
-                                    {{ session('message') }}
-                            </div>
+                      <div class="alert alert-success p-2" role="alert">
+                        {{ session('message') }}
+                      </div>
                     @endif
 
                     @if (count($courses) > 0)

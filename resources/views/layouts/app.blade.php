@@ -28,6 +28,9 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
+                <a class="navbar-brand" href="{{ route('departments.index') }}">
+                  Departments
+                </a>
                 <a class="navbar-brand" href="{{ route('students.index') }}">
                     Students
                 </a>

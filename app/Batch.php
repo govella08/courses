@@ -22,6 +22,10 @@ class Batch extends Model
     return $this->belongsToMany('App\User');
   }
 
+  public function receipts () {
+    return $this->hasManyThrough('App\Receipt', 'App\Student');
+  }
+
   // HELPER FUNCTION (CHECK (TICK) ALL THE STUDENTS IN THIS BATCH)
   public function hasAnyStudent ($student) {
     if ($this->students()->where('first_name', $student)->first()) {

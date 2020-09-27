@@ -29,10 +29,10 @@ class CourseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-      $departments = Department::all();
-      return view ('courses.create', compact('departments'));
+      $department = Department::findOrFail($id);
+      return view ('courses.create', compact('department'));
     }
 
     /**
@@ -51,6 +51,8 @@ class CourseController extends Controller
         'department_id' => 'required'
       ]);
 
+      $departmentID = $request->department_id;
+
       $course = new Course;
       $course->code           = $request->code;
       $course->name           = $request->name;
@@ -61,7 +63,7 @@ class CourseController extends Controller
       $course->save();
 
       return redirect()
-      ->route('courses.index')
+      ->route('courses.create', $departmentID)
       ->with('message', 'Course information saved successfully');
     }
 

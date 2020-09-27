@@ -38,7 +38,7 @@
                           <td>{{ $count++ }}</td>
                           <td><a href="{{ route('students.show', $student->id) }}">{{ $student->first_name }} {{ $student->last_name }}</a></td>                        
                           <td class="{{ $class }}">{{ 'Tsh '.number_format($student->receipts->sum('amount'), '0', '.', ',' ) }}</td>
-                          <td><a title="Add payment for this student" class="btn btn-sm btn-outline-primary" href="{{ route('receipts.create', $student ) }}"><i class="fas fa-hand-holding-usd"></i></a></td>
+                          <td><a title="Add payment for {{ $student->first_name }}" class="btn btn-sm btn-outline-primary" href="{{ route('receipts.create', $student ) }}"><i class="fas fa-hand-holding-usd"></i></a></td>
                         </tr>
                       @endforeach
                     </table>

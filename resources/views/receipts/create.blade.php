@@ -9,10 +9,10 @@
 
                 <div class="card-body">
                     <form action="{{ route('receipts.store') }}" method="post" enctype="multipart/form-data">
-                      @csrf
+                      @csrf                 
 
                       <div class="form-group row">
-                        <label for="receipt_number" class="col-md-4 col-form-label text-md-right">{{ __('Receipt number') }}</label>
+                        <label for="receipt_number" class="col-md-4 col-form-label text-md-right">{{ __('Receipt number') }}:</label>
 
                         <div class="col-md-6">
                           <input id="receipt_number" type="text" class="form-control @error('receipt_number') is-invalid @enderror" name="receipt_number" value="{{ old('receipt_number') }}" required autocomplete="receipt_number" autofocus>
@@ -26,7 +26,7 @@
                       </div>
 
                       <div class="form-group row">
-                        <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Issue date') }}</label>
+                        <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Issue date') }}:</label>
 
                         <div class="col-md-6">
                             <input id="date" type="text" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ old('date') }}" required autocomplete="date" autofocus>
@@ -40,7 +40,7 @@
                       </div>
 
                       <div class="form-group row">
-                        <label for="amount" class="col-md-4 col-form-label text-md-right">{{ __('Amount') }}</label>
+                        <label for="amount" class="col-md-4 col-form-label text-md-right">{{ __('Amount') }}:</label>
 
                         <div class="col-md-6">
                             <input id="amount" type="text" class="form-control @error('amount') is-invalid @enderror" name="amount" value="{{ old('amount') }}" required autocomplete="amount" autofocus>
@@ -53,10 +53,10 @@
                         </div>
                       </div>
                       
-                      <input type="hidden" name="student_id" value="{{ $student }}">
+                      <input type="hidden" name="student_id" value="{{ $student->id }}">
 
                       <div class="form-group row">
-                        <label for="image" class="col-md-4 col-form-label text-md-right">{{ __('Upload Receipt') }}</label>
+                        <label for="image" class="col-md-4 col-form-label text-md-right">{{ __('Upload Receipt') }}:</label>
 
                         <div class="col-md-6">
                             <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" required autofocus>
@@ -72,11 +72,35 @@
 
                       <div class="form-group row">
 
-                        <div class="col-md-6">
-                            <button type="submit" class="btn btn-outline-primary">Save Receipt</button>
+                        <div class="col-md-6 offset-md-4">
+                            <button type="submit" class="btn btn-outline-primary btn-block">Save Receipt</button>
                         </div>
                       </div>
                     </form>
+                    <hr>
+                    <p class="text-info mt-4">Previous payments made by {{ $student->first_name }}:</p>
+                    @if (count($student->receipts) > 0)
+                      <table class="table table-hover table-sm">
+                        <tr>
+                          <th>#</th>
+                          <th>Receipt Number</th>
+                          <th>Amount</th>
+                          <th>Issue Date</th>
+                          <th>Paid For</th>
+                          <th>Receipts</th>
+                        </tr>
+                        @foreach ($student->receipts as $key=>$receipt)
+                          <tr>
+                            <td>{{ ++$key }}</td>
+                            <td>{{ $receipt->number }}</td>
+                            <td>{{ $receipt->amount }}</td>
+                            <td>{{ $receipt->batch }}</td>
+                            <td>{{ $receipt->date }}</td>
+                            <td><a title="View this receipt's image" href="#" class="btn btn-sm btn-info"><i class="fas fa-eye"></i></a></td>
+                          </tr>
+                        @endforeach
+                      </table>
+                    @endif
                 </div>
             </div>
         </div>

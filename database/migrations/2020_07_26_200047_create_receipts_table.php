@@ -15,8 +15,8 @@ class CreateReceiptsTable extends Migration
     {
       Schema::create('receipts', function (Blueprint $table) {
         $table->id();
-        $table->string('number');
-        $table->date('date');
+        $table->string('number')->unique();
+        $table->date('date')->nullable();
         $table->integer('amount')->unsigned();
         $table->bigInteger('student_id')->unsigned();
         $table->string('image');

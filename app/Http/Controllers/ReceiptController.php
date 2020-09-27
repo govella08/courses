@@ -26,7 +26,7 @@ class ReceiptController extends Controller
     public function create(Student $student)
     {
       return view('receipts.create')->with([
-        'student' => $student->id
+        'student' => $student
       ]);
     }
 

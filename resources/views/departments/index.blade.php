@@ -9,7 +9,7 @@
 					<div class="flex align-items-center">
 						Departments
 						<div class="float-right">
-							<a href="{{ route('departments.create') }}" class="btn btn-outline-secondary btn-sm">+</a>
+							<a href="{{ route('departments.create') }}" class="btn btn-outline-secondary btn-sm"><i class="fas fa-plus"></i></a>
 						</div>
 					</div>
 				</div>
