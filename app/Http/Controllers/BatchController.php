@@ -69,6 +69,7 @@ class BatchController extends Controller
      */
     public function show(Batch $batch)
     {
+      //$id = $batch->id;
       return view ('batches.show', compact('batch'));
     }
 

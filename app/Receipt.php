@@ -11,4 +11,8 @@ class Receipt extends Model
   public function student() {
     return $this->belongsTo('App\Student');
   }
+
+  public function batch() {
+    return $this->belongsTo('App\Batch');
+  }
 }

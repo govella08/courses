@@ -19,6 +19,7 @@ class CreateReceiptsTable extends Migration
         $table->date('date')->nullable();
         $table->integer('amount')->unsigned();
         $table->bigInteger('student_id')->unsigned();
+        $table->bigInteger('batch_id')->unsigned();
         $table->string('image');
         $table->timestamps();
       });

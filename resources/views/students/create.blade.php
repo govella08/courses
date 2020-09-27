@@ -9,7 +9,7 @@
                   <div class="flex align-items-center">
                     Add New Student
                     <div class="float-right">
-                      <a href="{{ route('students.index') }}" class="btn btn-outline-secondary btn-sm"> << Back</a>
+                      <a href="{{ route('students.index') }}" class="btn btn-outline-secondary btn-sm"> << Back to all students</a>
                     </div>
                   </div>
                 </div>

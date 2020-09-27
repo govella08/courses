@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header">{{ __('Add Receipt Information') }}</div>
 
@@ -52,6 +52,25 @@
                             @enderror
                         </div>
                       </div>
+
+                      <div class="form-group row">
+                        <label for="batch" class="col-md-4 col-form-label text-md-right">{{ __('Batch') }}:</label>
+
+                        <div class="col-md-6">
+                            <select name="batch_id" id="batch_id" class="form-control">
+                              <option value="">Select batch</option>
+                              @foreach ($batches as $batch)
+                                <option value="{{ $batch->id }}">{{ $batch->name }}</option>
+                              @endforeach
+                            </select>
+
+                            @error('batch')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                      </div>
                       
                       <input type="hidden" name="student_id" value="{{ $student->id }}">
 
@@ -86,7 +105,8 @@
                           <th>Receipt Number</th>
                           <th>Amount</th>
                           <th>Issue Date</th>
-                          <th>Paid For</th>
+                          <th>Course Paid For</th>
+                          <th>Batch</th>
                           <th>Receipts</th>
                         </tr>
                         @foreach ($student->receipts as $key=>$receipt)
@@ -94,9 +114,10 @@
                             <td>{{ ++$key }}</td>
                             <td>{{ $receipt->number }}</td>
                             <td>{{ $receipt->amount }}</td>
-                            <td>{{ $receipt->batch }}</td>
-                            <td>{{ $receipt->date }}</td>
-                            <td><a title="View this receipt's image" href="#" class="btn btn-sm btn-info"><i class="fas fa-eye"></i></a></td>
+                            <td>{{ $receipt->date }}</td>                            
+                            <td>{{ $receipt->batch->course->name }}</td>
+                            <td>{{ $receipt->batch->name }}</td>
+                            <td><a title="View this image" href="#" class="btn btn-sm btn-info"><i class="fas fa-eye"></i></a></td>
                           </tr>
                         @endforeach
                       </table>

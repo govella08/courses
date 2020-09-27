@@ -23,7 +23,7 @@ class Batch extends Model
   }
 
   public function receipts () {
-    return $this->hasManyThrough('App\Receipt', 'App\Student');
+    return $this->hasMany('App\Receipt');
   }
 
   // HELPER FUNCTION (CHECK (TICK) ALL THE STUDENTS IN THIS BATCH)

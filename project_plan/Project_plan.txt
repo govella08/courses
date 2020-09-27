@@ -36,3 +36,10 @@ Batches: add batches to courses, populate students to batch, list batch info
 Roles: add roles through db seeder
 
 
+
+PROBLEMS:
+How do I effectively add batch_id when saving payments receipt?
+When adding a student in Batch 2 who's already in Batch 1, the payments from Batch 1 appears in Batch 2
+
+
+

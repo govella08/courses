@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Receipt;
 use Illuminate\Http\Request;
 use App\Student;
+use App\Batch;
 
 class ReceiptController extends Controller
 {
@@ -25,8 +26,10 @@ class ReceiptController extends Controller
      */
     public function create(Student $student)
     {
+      $batches = Batch::all();
       return view('receipts.create')->with([
-        'student' => $student
+        'student' => $student,
+        'batches' => $batches
       ]);
     }
 
@@ -39,10 +42,11 @@ class ReceiptController extends Controller
     public function store(Request $request)
     {
       $this->validate($request, [
-        'receipt_number'    => 'required',
-        'date'              => 'required|date',
-        'amount'            => 'required',
-        'student_id'           => 'required'
+        'receipt_number' => 'required',
+        'date'           => 'required|date',
+        'amount'         => 'required',
+        'student_id'     => 'required',
+        'batch_id'       => 'required'
       ]);
 
       $receipt = new Receipt;
@@ -51,6 +55,7 @@ class ReceiptController extends Controller
       $receipt->date = $request->date;
       $receipt->amount = $request->amount;
       $receipt->student_id = $request->student_id;
+      $receipt->batch_id = $request->batch_id;
 
       if($request->file('image')) {
         $file = $request->file('image');

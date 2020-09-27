@@ -21,11 +21,15 @@
                         </div>
                     @endif
 
+                    @php
+                        $no = 1;
+                    @endphp
+
                     <div class="courses">
                         <h4>Courses in {{ $department->name }} department:</h4>
                         <ul class="list-group list-group-flush mt-3">
                             @foreach ($department->courses as $course)
-                                <li class="list-group-item"><a href="{{ route('courses.show', $course->id) }}">{{ $course->name }}</a></li>
+                              <li class="list-group-item">{{ $no++ }}. <a href="{{ route('courses.show', $course->id) }}">{{ $course->name }}</a></li>
                             @endforeach
                         </ul>
                     </div>

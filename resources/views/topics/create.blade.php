@@ -9,7 +9,7 @@
                   <div class="flex align-items-center">
                     Add Topics to {{ $course->name }}
                     <div class="float-right">
-                      <a href="{{ route('courses.show', $course->id) }}" class="btn btn-outline-secondary btn-sm"> << Back</a>
+                      <a href="{{ route('courses.show', $course->id) }}" class="btn btn-outline-secondary btn-sm"> << Back to {{ $course->name }} course</a>
                     </div>
                   </div>
                 </div>
