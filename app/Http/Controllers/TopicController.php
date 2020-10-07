@@ -35,6 +35,12 @@ class TopicController extends Controller
       ->with('message', 'New topic added successfully');
     }
 
+    public function show (Topic $topic)
+    {
+      
+      return view ('topics.show', compact('topic'));
+    }
+
     public function edit(Topic $topic)
     {
       //

@@ -60,11 +60,12 @@ class ReceiptController extends Controller
       if($request->file('image')) {
         $file = $request->file('image');
         $ext = strtolower($file->getClientOriginalExtension());
-        $file_name = 'receipt'.'.'.$request->student_id.'.'.time().'.'.$ext;
+        $file_name = 'receipt'.time().'.'.$ext;
+        $destination = 'uploads/receipts/'.$file_name;
         $file->move('uploads/receipts/', $file_name);
       }
 
-      $receipt->image = $file_name;
+      $receipt->image = $destination;
       
       $receipt->save();
       return redirect()->route('courses.index');
@@ -76,9 +77,13 @@ class ReceiptController extends Controller
      * @param  \App\Receipt  $receipt
      * @return \Illuminate\Http\Response
      */
-    public function show(Receipt $receipt)
+    public function show(Receipt $receipt, Request $request)
     {
-        //
+      $batch_id = $request->session()->get('batch');
+      return view ('receipts.show')->with([
+        'receipt' => $receipt,
+        'batch_id' => $batch_id
+      ]);
     }
 
     /**

@@ -20,6 +20,7 @@ class CreateRelativesTable extends Migration
             $table->string('phone');
             $table->string('address');
             $table->timestamps();
+            $table->integer('deleted')->default(0);
         });
     }
 

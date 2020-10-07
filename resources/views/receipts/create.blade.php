@@ -117,7 +117,7 @@
                             <td>{{ $receipt->date }}</td>                            
                             <td>{{ $receipt->batch->course->name }}</td>
                             <td>{{ $receipt->batch->name }}</td>
-                            <td><a title="View this image" href="#" class="btn btn-sm btn-info"><i class="fas fa-eye"></i></a></td>
+                            <td><a title="View this image" href="{{ route('receipts.show', $receipt->id) }}" class="btn btn-sm btn-info"><i class="fas fa-eye"></i></a></td>
                           </tr>
                         @endforeach
                       </table>

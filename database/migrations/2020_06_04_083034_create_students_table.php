@@ -15,20 +15,20 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name');
-            $table->string('middle_name');
-            $table->string('last_name');
+            $table->string('name');
             $table->string('sex');
-            $table->string('dob');
-            $table->string('pob');
-            $table->string('nationality');
-            $table->string('marital_status');
-            $table->string('phone');
-            $table->string('email');
-            $table->string('current_address');
-            $table->string('photo');
-            $table->string('batch_status');
+            $table->date('dob')->nullable();
+            $table->string('pob')->nullable();
+            $table->string('nationality')->nullable();
+            $table->string('marital_status')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
+            $table->string('current_address')->nullable();
+            $table->string('photo')->nullable();
+            $table->string('batch_status')->default('Unbatched');
+            $table->string('course_interested')->nullable();
             $table->timestamps();
+            $table->integer('deleted')->default(0);
         });
     }
 

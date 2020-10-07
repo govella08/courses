@@ -17,4 +17,9 @@ class Department extends Model
   {
     return $this->hasMany('App\User');
   }
+
+  public function documents()
+  {
+    return $this->hasMany('App\Document');
+  }
 }

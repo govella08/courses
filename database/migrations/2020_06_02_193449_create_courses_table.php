@@ -21,6 +21,7 @@ class CreateCoursesTable extends Migration
             $table->bigInteger('fee')->default(0);
             $table->bigInteger('department_id')->unsigned();
             $table->timestamps();
+            $table->integer('deleted')->default(0);
         });
     }
 

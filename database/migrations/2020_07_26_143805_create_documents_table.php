@@ -16,8 +16,10 @@ class CreateDocumentsTable extends Migration
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->bigInteger('course_id')->unsigned();
+            $table->string('location');
+            $table->bigInteger('department_id')->unsigned();
             $table->timestamps();
+            $table->integer('deleted')->default(0);
         });
     }
 
@@ -28,6 +30,6 @@ class CreateDocumentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('documents');
+      Schema::dropIfExists('documents');
     }
 }

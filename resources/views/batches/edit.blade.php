@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Edit batch: <strong>{{ $batch->name }}</strong></div>
+                <div class="card-header">Add students to <strong>{{ $batch->name }}</strong></div>
 
                 <div class="card-body">
                   @if (count($students) > 0 )
@@ -16,9 +16,9 @@
                       @foreach ($students as $student)
                         <div class="form-group">
                           <input type="checkbox" name="students[]" value="{{ $student->id }}"
-                            {{ $batch->hasAnyStudent($student->first_name)?'checked':''}}
+                            {{ $batch->hasAnyStudent($student->name)?'checked':''}}
                           >
-                          <label>{{ $student->first_name }} {{ $student->last_name }}</label>
+                          <label>{{ $student->name }}</label>
                         </div>
                       @endforeach
 

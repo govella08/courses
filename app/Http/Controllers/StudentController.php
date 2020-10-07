@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Student;
 use App\Relative;
+use App\Course;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -27,8 +28,10 @@ class StudentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-      return view ('students.create');
+    {      
+      return view ('students.create')->with([
+        'courses' => Course::all(),
+      ]);
     }
 
     /**
@@ -40,34 +43,18 @@ class StudentController extends Controller
     public function store(Request $request)
     {
       $this->validate($request, [
-        'first_name'    => 'required',
-        'middle_name'   => 'required',
-        'last_name'     => 'required',
-        'dob'           => 'required',
-        'pob'           => 'required',
-        'sex'           => 'required',
-        'marital_status'=> 'required',
-        'phone'         => 'required',
-        'email'         => 'required',
-        'current_address'         => 'required',
-        'nationality'   => 'required',
-        'photo'         => 'required'
+        'name'    => 'required',        
+        'sex'     => 'required',
+        'phone'   => 'required',
+        'course'  => 'required'
       ]);
 
       $student = new Student;
-      $student->first_name = $request->first_name;
-      $student->middle_name = $request->middle_name;
-      $student->last_name = $request->last_name;
-      $student->dob = $request->dob;
-      $student->pob = $request->pob;
+      $student->name = $request->name;
       $student->sex = $request->sex;
-      $student->marital_status = $request->marital_status;
       $student->phone = $request->phone;
       $student->email = $request->email;
-      $student->current_address = $request->current_address;
-      $student->nationality = $request->nationality;
-      $student->photo = $request->photo;
-      $student->batch_status = "Unbatched";
+      $student->course_interested = $request->course;
 
       $student->save();
 

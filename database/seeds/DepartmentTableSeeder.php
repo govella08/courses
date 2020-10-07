@@ -13,6 +13,11 @@ class DepartmentTableSeeder extends Seeder
   public function run()
   {
     Department::truncate();
+    
+    Department::create([
+      'code'  => 'CoED',
+      'name'  => 'Continuing Education'
+    ]);
     Department::create([
       'code'  => 'ICT',
       'name'  => 'Information and Communication Technology'

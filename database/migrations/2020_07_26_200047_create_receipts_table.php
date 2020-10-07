@@ -22,6 +22,7 @@ class CreateReceiptsTable extends Migration
         $table->bigInteger('batch_id')->unsigned();
         $table->string('image');
         $table->timestamps();
+        $table->integer('deleted')->default(0);
       });
     }
 

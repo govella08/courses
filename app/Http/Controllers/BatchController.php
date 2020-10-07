@@ -42,8 +42,8 @@ class BatchController extends Controller
       $this->validate($request, [
         'name'        => 'required',
         'start_date'  => 'required',
-        'end_date'  => 'required',
-        'course_id'  => 'required',
+        'end_date'    => 'required',
+        'course_id'   => 'required',
       ]);
 
       $batch = new Batch;
@@ -67,9 +67,9 @@ class BatchController extends Controller
      * @param  \App\Batch  $batch
      * @return \Illuminate\Http\Response
      */
-    public function show(Batch $batch)
+    public function show(Batch $batch, Request $request)
     {
-      //$id = $batch->id;
+      $request->session()->put('batch', $batch->id);
       return view ('batches.show', compact('batch'));
     }
 

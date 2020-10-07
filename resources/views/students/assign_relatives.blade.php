@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Assign Relatives to <strong>{{ $student->first_name }} {{ $student->last_name }}</strong></div>
+                <div class="card-header">Assign Relatives to <strong>{{ $student->name }}</strong></div>
                 <div class="card-body">
                     @if (session('message'))
                             <div class="alert alert-success p-2" role="alert">

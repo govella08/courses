@@ -24,7 +24,7 @@
                     <div class="topics">
                       <p>Topics to be covered in this course:</p>
                         @if (count($course->topics) > 0)
-                          <table class="table table-hover table-borderless">                            
+                          <table class="table table-hover table-borderless table-sm">                            
                             <tr>
                               
                             </tr>
@@ -33,12 +33,12 @@
                               <td>{{ ++$key }}. </td>                              
                               <td>{{ $topic->name }}</td>                                                        
                               <td>
-                                <a title="Add notes to this topic" class="btn btn-sm btn-outline-primary" href="#"><i class="fas fa-cloud-upload-alt"></i></a>
-                                <a title="Download notes for this topic" class="btn btn-sm btn-outline-primary" href="#"><i class="fas fa-cloud-download-alt"></i></a>
+                                <a title="Add notes to this topic" class="btn btn-sm btn-outline-primary" href="{{ route('notes.create', $topic) }}"><i class="fas fa-cloud-upload-alt"></i></a>
+                                <a title="Download notes for this topic" class="btn btn-sm btn-outline-primary" href="{{ route('topics.show', $topic) }}"><i class="fas fa-cloud-download-alt"></i></a>
                                 <form action="{{ route('topics.destroy', $topic->id) }}" method="post" style="display: inline-block">
                                   @csrf
                                   @method('DELETE')
-                                  <button title="Delete this topic" class="btn btn-outline-danger btn-sm" href="{{ route('topics.destroy', $topic->id) }}"> <i class="fas fa-trash-alt"></i></button>
+                                  <button title="Delete this topic" class="btn btn-outline-danger btn-sm" href="{{ route('topics.destroy', $topic) }}"> <i class="fas fa-trash-alt"></i></button>
                                 </form>
                               </td>
                             </tr>

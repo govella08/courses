@@ -18,6 +18,7 @@ class CreateTopicsTable extends Migration
             $table->string('name');
             $table->bigInteger('course_id')->unsigned();
             $table->timestamps();
+            $table->integer('deleted')->default(0);
         });
     }
 

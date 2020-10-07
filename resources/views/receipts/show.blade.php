@@ -7,15 +7,17 @@
       <div class="card">
         <div class="card-header">
           <div class="flex justify-content-center">
-            <strong>{{ $topic->name }}</strong>{{ __(' notes') }}
+            {{ $receipt->number }}
             <div class="float-right">
-            <a href="{{ route('courses.show', $topic->course->id) }}" type="submit" class="btn btn-outline-secondary btn-sm"><i class="fas fa-arrow-alt-circle-left"></i> Back</a>
+              <a href="{{ route('batches.show', $batch_id) }}" class="btn btn-outline-secondary btn-sm"><i class="fas fa-arrow-alt-circle-left"></i> Back</button>
             </div>
-          </div>          
+          </div>
         </div>
 
         <div class="card-body">
-          <embed src="{{ asset($topic->note->notes) }}" type="application/pdf" style="width: 100%; height: 500px;">
+
+          <embed src="{{ asset($receipt->image) }}" style="width: 100%; height: 100%;">
+
         </div>
       </div>
     </div>

@@ -18,6 +18,7 @@ class CreateNotesTable extends Migration
             $table->string('notes');
             $table->bigInteger('topic_id')->unsigned();
             $table->timestamps();
+            $table->integer('deleted')->default(0);
         });
     }
 

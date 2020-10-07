@@ -50,6 +50,8 @@ Route::PATCH('users/{user}/update_roles', 'UserController@update_roles')->name('
 Route::resource('documents', 'DocumentController');
 Route::resource('receipts', 'ReceiptController')->except('create');
 Route::get('receipts/add/{student}', 'ReceiptController@create')->name('receipts.create');
+Route::resource('notes', 'NoteController')->except('create');
+Route::get('notes/create/{topic}', 'NoteController@create')->name('notes.create');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

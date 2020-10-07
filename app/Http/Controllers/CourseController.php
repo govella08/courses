@@ -73,8 +73,10 @@ class CourseController extends Controller
      * @param  \App\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function show(Course $course)
+    public function show(Course $course, Request $request)
     {
+      $id = $course->id;
+      $request->session()->put('course', $id);
       return view ('courses.show')->with([
         'course'      => $course
       ]);

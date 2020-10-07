@@ -21,6 +21,7 @@ class CreateBatchesTable extends Migration
             $table->string('status');
             $table->bigInteger('course_id')->unsigned();
             $table->timestamps();
+            $table->integer('deleted')->default(0);
         });
     }
 

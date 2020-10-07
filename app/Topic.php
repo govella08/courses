@@ -12,4 +12,8 @@ class Topic extends Model
   {
     return $this->belongsTo('App\Course');
   }
+
+  public function note() {
+    return $this->hasOne('App\Note');
+  }
 }
