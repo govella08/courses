@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 
 class BatchController extends Controller
 {
+
+  // public function __construct()
+  // {
+  //   return $this->middleware('auth');
+  // }
     /**
      * Display a listing of the resource.
      *
